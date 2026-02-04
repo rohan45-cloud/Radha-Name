@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Radha Naam Jaap</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fde4ec;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            width: 280px;
+        }
+        
+        h1 {
+            margin: 0;
+            color: #c2185b;
+            font-size: 40px;
+        }
+        
+        .hindi {
+            font-size: 26px;
+            color: #880e4f;
+            margin-bottom: 20px;
+        }
+        
+        #count {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #4a0033;
+        }
+        
+        button {
+            padding: 12px 28px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            background: #e91e63;
+            color: white;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #ad1457;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Radha</h1>
+        <div class="hindi">राधा</div>
+
+        <div id="count">Jaap Count: 0</div>
+
+        <button onclick="jaap()">Radha Naam Jaap</button>
+    </div>
+
+    <script>
+        // simple number-based count (never reset)
+        let count = localStorage.getItem("radhaCount") ?
+            Number(localStorage.getItem("radhaCount")) :
+            0;
+
+        function update() {
+            document.getElementById("count").innerText = "Jaap Count: " + count;
+        }
+
+        function jaap() {
+            count = count + 1;
+            localStorage.setItem("radhaCount", count);
+            update();
+        }
+
+        update();
+    </script>
+</body>
+
+</html>
